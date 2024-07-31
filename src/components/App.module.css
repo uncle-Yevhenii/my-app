@@ -1,0 +1,6 @@
+.section {
+  max-width: 375px;
+  margin: auto;
+  padding: 25px;
+  background: var(--primary-200);
+}

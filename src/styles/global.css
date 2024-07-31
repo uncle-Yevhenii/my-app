@@ -1,2 +1,7 @@
 @import url('./reset.css');
-@import url('./variable.css')
+@import url('./variable.css');
+
+body {
+  color: var(--text-950);
+  background-color: var(--background-100);
+}
