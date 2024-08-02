@@ -11,6 +11,6 @@ interface StateStopwatch {
 
 export interface ButtonStopwatchProps extends StateStopwatch {
   variant: 'start' | 'pause' | 'stop'
-  children: React.ReactNode
+  children: JSX.Element
   btnClickType: () => void
 }

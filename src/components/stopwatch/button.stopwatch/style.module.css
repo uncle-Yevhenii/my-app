@@ -1,0 +1,22 @@
+.button {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text-950);
+  background-color: var(--background-200);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--rounded-md);
+  transition: var(--animation);
+
+  border: solid 1px var(--primary-300);
+
+  outline: transparent;
+}
+.button:hover,
+.button:focus {
+  background-color: var(--primary-300);
+}

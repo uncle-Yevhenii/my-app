@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { formatTime, pause, start, stop } from './helpers'
+import { PlayIcon, PauseIcon, StopIcon } from '../images'
 
 import style from './style.module.css'
 import { ButtonStopwatch } from './button.stopwatch/button'
@@ -30,19 +31,19 @@ export function Stopwatch() {
       <div className={style.controls}>
         {!isRunning ? (
           <ButtonStopwatch
-            children="Start"
+            children={<PlayIcon size={20} color="#37332f" />}
             btnClickType={() => start(setIsRunning, startTimeRef, elapsedTime)}
             variant={'start'}
           />
         ) : (
           <ButtonStopwatch
-            children="Pause"
+            children={<PauseIcon size={20} color="#37332f" />}
             btnClickType={() => pause(setIsRunning)}
             variant={'pause'}
           />
         )}
         <ButtonStopwatch
-          children="Stop"
+          children={<StopIcon size={20} color="#37332f" />}
           btnClickType={() => stop(setElapsedTime, setIsRunning)}
           variant={'stop'}
         />
