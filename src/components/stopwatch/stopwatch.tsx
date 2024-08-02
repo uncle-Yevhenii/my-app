@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 import { formatTime, pause, start, stop } from './helpers'
 
+import style from './style.module.css'
+import { ButtonStopwatch } from './button.stopwatch/button'
+
 export function Stopwatch() {
+  const INTERVAL_DELAY: number = 10
+
   const [isRunning, setIsRunning] = useState<boolean>(false)
   const [elapsedTime, setElapsedTime] = useState<number>(0)
   const intervalIdRef = useRef<number>(0)
@@ -11,7 +16,7 @@ export function Stopwatch() {
     if (isRunning) {
       intervalIdRef.current = setInterval(() => {
         setElapsedTime(Date.now() - startTimeRef.current)
-      }, 10)
+      }, INTERVAL_DELAY)
     }
 
     return () => {
@@ -20,18 +25,27 @@ export function Stopwatch() {
   }, [isRunning])
 
   return (
-    <div className="stopwatch">
-      <div className="display">{formatTime(elapsedTime)}</div>
-      <div className="controls">
-        <button onClick={() => start(setIsRunning, startTimeRef, elapsedTime)} className="start-button">
-          Start
-        </button>
-        <button onClick={() => pause(setIsRunning)} className="stop-button">
-          Pause
-        </button>
-        <button onClick={() => stop(setElapsedTime, setIsRunning)} className="reset-button">
-          Stop
-        </button>
+    <div className={style.stopwatch_container}>
+      <div className={style.display}>{formatTime(elapsedTime)}</div>
+      <div className={style.controls}>
+        {!isRunning ? (
+          <ButtonStopwatch
+            children="Start"
+            btnClickType={() => start(setIsRunning, startTimeRef, elapsedTime)}
+            variant={'start'}
+          />
+        ) : (
+          <ButtonStopwatch
+            children="Pause"
+            btnClickType={() => pause(setIsRunning)}
+            variant={'pause'}
+          />
+        )}
+        <ButtonStopwatch
+          children="Stop"
+          btnClickType={() => stop(setElapsedTime, setIsRunning)}
+          variant={'stop'}
+        />
       </div>
     </div>
   )
