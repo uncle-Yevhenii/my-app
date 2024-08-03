@@ -4,9 +4,13 @@ import { PlayIcon, PauseIcon, StopIcon } from '../images'
 
 import style from './style.module.css'
 import { ButtonStopwatch } from './button.stopwatch/button'
+import RootModalComponent from '../modal/rootModalComponent'
+import { closeModal } from '../modal/helpers'
 
 export function Stopwatch() {
   const INTERVAL_DELAY: number = 10
+
+  const [modalIsOpen, setIsOpen] = useState<boolean>(false)
 
   const [isRunning, setIsRunning] = useState<boolean>(false)
   const [elapsedTime, setElapsedTime] = useState<number>(0)
@@ -44,9 +48,11 @@ export function Stopwatch() {
         )}
         <ButtonStopwatch
           children={<StopIcon size={20} color="#37332f" />}
-          btnClickType={() => stop(setElapsedTime, setIsRunning)}
+          btnClickType={() => stop(setElapsedTime, setIsRunning, setIsOpen)}
           variant={'stop'}
         />
+
+        <RootModalComponent modalIsOpen={modalIsOpen} closeModal={() => closeModal} />
       </div>
     </div>
   )

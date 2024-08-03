@@ -24,8 +24,10 @@ export const pause = (setIsRunning: Dispatch<React.SetStateAction<boolean>>): vo
 
 export const stop = (
   setElapsedTime: Dispatch<React.SetStateAction<number>>,
-  setIsRunning: Dispatch<React.SetStateAction<boolean>>
+  setIsRunning: Dispatch<React.SetStateAction<boolean>>,
+  openModal: Dispatch<React.SetStateAction<boolean>>
 ): void => {
   setElapsedTime(0)
   setIsRunning(false)
+  openModal(true)
 }
