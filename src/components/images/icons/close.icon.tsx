@@ -1,6 +1,6 @@
 import { IconProps } from './type'
 
-export default function StopIcon({ size = 20, color = 'currentColor' }: IconProps) {
+export default function closeIcon({ size = 20, color = 'currentColor' }: IconProps) {
   return (
     <svg
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
@@ -10,7 +10,7 @@ export default function StopIcon({ size = 20, color = 'currentColor' }: IconProp
       viewBox="0 -960 960 960"
       fill={color}
     >
-      <path d="M320-640v320-320Zm-80 400v-480h480v480H240Zm80-80h320v-320H320v320Z" />
+      <path d="M256-192.35 192.35-256l224-224-224-224L256-767.65l224 224 224-224L767.65-704l-224 224 224 224L704-192.35l-224-224-224 224Z" />
     </svg>
   )
 }

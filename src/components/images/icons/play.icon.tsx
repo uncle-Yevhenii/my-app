@@ -1,7 +1,4 @@
-type IconProps = {
-  size: number
-  color?: string
-}
+import { IconProps } from './type'
 
 export default function PlayIcon({ size = 20, color = 'currentColor' }: IconProps) {
   return (
