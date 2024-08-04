@@ -1,56 +1,23 @@
 import Modal from 'react-modal'
-import { CloseIcon } from '../../images'
-
-import { Formik, Field, Form, FormikHelpers } from 'formik'
+import { useAppDispatch, useAppSelector } from '../../../redux.store/hook'
+import { toggleModal } from '../../../redux.store/stopwatch/slice.stopwatch'
+import { FormModal } from './form.modal'
 
 Modal.setAppElement('#root')
 
-interface RootModalProps {
-  contentLabel?: string
-  isOpen: boolean
-  setCloseModal: () => void
-  triggerStopwatch: () => void
-  children: 'Start page' | 'Finish page'
-}
-interface Values {
-  page: number
-}
-export function RootModal({
-  isOpen,
-  setCloseModal,
-  triggerStopwatch,
-  contentLabel = 'Example Modal',
-  children,
-}: RootModalProps) {
+export function RootModal() {
+  const modal = useAppSelector((state) => state.stopwatch.modal__cfg)
+  const dispatch = useAppDispatch()
+
   return (
-    <Modal isOpen={isOpen} onRequestClose={() => setCloseModal()} contentLabel={contentLabel}>
-      <div className="modal-wrapper">
-        <button onClick={() => setCloseModal()} type="button">
-          <CloseIcon size={20} />
-        </button>
-
-        <div className="modal-content">
-          <p>{children}</p>
-          <Formik
-            initialValues={{ page: 0 }}
-            onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-              console.log(values)
-              setSubmitting(false)
-
-              if (children === 'Start page') {
-                setCloseModal()
-                triggerStopwatch()
-              }
-            }}
-          >
-            <Form>
-              <label htmlFor="page">Page</label>
-              <Field id="page" type="number" name="page" />
-              <button type="submit">Submit</button>
-            </Form>
-          </Formik>
-        </div>
-      </div>
+    <Modal
+      isOpen={modal.open}
+      onRequestClose={() => dispatch(toggleModal(!modal.open))}
+      contentLabel="Example Modal"
+    >
+      <button onClick={() => dispatch(toggleModal(!modal.open))}>close</button>
+      <div>I am a modal</div>
+      <FormModal />
     </Modal>
   )
 }
