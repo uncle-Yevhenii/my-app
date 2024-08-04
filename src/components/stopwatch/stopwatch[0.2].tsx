@@ -1,6 +1,7 @@
 import { start, stop, pause, tick } from '../../redux.store/stopwatch/slice.stopwatch'
 import { useAppDispatch, useAppSelector } from '../../redux.store/hook'
 import { useEffect } from 'react'
+import { formatTime } from './helpers'
 
 export function Stopwatch() {
   const INTERVAL_DELAY: number = 1000
@@ -18,7 +19,7 @@ export function Stopwatch() {
 
   return (
     <div>
-      <div>{`${state.hours}:${state.minutes}:${state.second}`}</div>
+      <div>{formatTime(state.hours, state.minutes, state.second)}</div>
       <div>
         <button onClick={() => dispatch(start())}>Start</button>
       </div>
