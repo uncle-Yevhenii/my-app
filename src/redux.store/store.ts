@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import stopwatchReducer from './stopwatch/slice.stopwatch'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    stopwatch: stopwatchReducer,
+  },
 })
 
 export type RootState = ReturnType<typeof store.getState>

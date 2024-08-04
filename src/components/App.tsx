@@ -1,3 +1,4 @@
+import { NewStopwatch } from './stopwatch/new'
 import { Stopwatch } from './stopwatch/stopwatch'
 
 export default function App() {
@@ -5,6 +6,7 @@ export default function App() {
     <section>
       <div>
         <Stopwatch />
+        <NewStopwatch />
       </div>
     </section>
   )
