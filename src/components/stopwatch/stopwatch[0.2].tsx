@@ -2,7 +2,7 @@ import { start, stop, pause, tick } from '../../redux.store/stopwatch/slice.stop
 import { useAppDispatch, useAppSelector } from '../../redux.store/hook'
 import { useEffect } from 'react'
 
-export const NewStopwatch = () => {
+export function Stopwatch() {
   const INTERVAL_DELAY: number = 1000
 
   const state = useAppSelector((state) => state.stopwatch)

@@ -1,12 +1,10 @@
-import { NewStopwatch } from './stopwatch/new'
-import { Stopwatch } from './stopwatch/stopwatch'
+import { Stopwatch } from './stopwatch/stopwatch[0.2]'
 
 export default function App() {
   return (
     <section>
       <div>
         <Stopwatch />
-        <NewStopwatch />
       </div>
     </section>
   )
