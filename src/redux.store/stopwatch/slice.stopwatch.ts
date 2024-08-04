@@ -4,25 +4,39 @@ export const stopwatchSlice = createSlice({
   name: 'stopwatch',
   initialState: {
     running: false,
-    ticks: 0,
+    second: 0,
+    minutes: 0,
+    hours: 0,
   },
   reducers: {
     start: (state) => {
       state.running = true
     },
+    pause: (state) => {
+      state.running = false
+    },
     stop: (state) => {
       state.running = false
-    },
-    restart: (state) => {
-      state.running = false
-      state.ticks = 0
+      state.second = 0
+      state.minutes = 0
+      state.hours = 0
     },
     tick: (state) => {
-      state.ticks += 1
+      state.second += 1
+
+      if (state.second === 60) {
+        state.second = 0
+        state.minutes += 1
+      }
+
+      if (state.minutes === 60) {
+        state.minutes = 0
+        state.hours += 1
+      }
     },
   },
 })
 
-export const { start, stop, restart, tick } = stopwatchSlice.actions
+export const { start, stop, pause, tick } = stopwatchSlice.actions
 
 export default stopwatchSlice.reducer
