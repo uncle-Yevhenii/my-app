@@ -1,6 +1,7 @@
-import { pause, start, tick, toggleModal } from '../../redux/stopwatch/slice.stopwatch'
-import { useAppDispatch, useAppSelector } from '../../redux/hook'
 import { useEffect } from 'react'
+
+import { pause, start, tick, toggleModal } from '@redux/stopwatch/slice.stopwatch'
+import { useAppDispatch, useAppSelector } from '@redux/hook'
 import { formatTime } from './helpers'
 import { RootModal } from './modal/root.modal'
 
@@ -50,7 +51,9 @@ export function Stopwatch() {
           dispatch(pause())
           dispatch(toggleModal({ modal: !modal.open, text: e.currentTarget.textContent }))
         }}
-        disabled={state.second === 0 && state.minutes === 0 && state.hours === 0 ? true : false}
+        disabled={
+          state.second === 0 && state.minutes === 0 && state.hours === 0 ? true : false
+        }
       >
         Stop
       </button>

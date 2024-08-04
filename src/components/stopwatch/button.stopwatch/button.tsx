@@ -3,7 +3,11 @@ import { ButtonStopwatchProps } from './type'
 
 import style from './style.module.css'
 
-export function ButtonStopwatch({ children, btnClickType, variant }: ButtonStopwatchProps) {
+export function ButtonStopwatch({
+  children,
+  btnClickType,
+  variant,
+}: ButtonStopwatchProps) {
   const buttonStyle = (variant: string) => {
     return clsx({
       [style.button]: true,

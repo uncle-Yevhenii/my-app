@@ -11,7 +11,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["./src/components/*"],
-      "@redux/*": ["./src/redux/*"],
+      "@redux/*": ["./src/redux/*"]
     },
 
     /* Bundler mode */

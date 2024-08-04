@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from 'formik'
-import { useAppDispatch, useAppSelector } from '../../../redux/hook'
-import { start, stop, toggleModal } from '../../../redux/stopwatch/slice.stopwatch'
+import { useAppDispatch, useAppSelector } from '@redux/hook'
+import { start, stop, toggleModal } from '@redux/stopwatch/slice.stopwatch'
 
 interface Values {
   page: number
