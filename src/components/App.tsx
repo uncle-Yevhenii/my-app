@@ -1,4 +1,4 @@
-import { Stopwatch } from './stopwatch/stopwatch[0.2]'
+import { Stopwatch } from './stopwatch/stopwatch'
 
 export default function App() {
   return (

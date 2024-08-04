@@ -1,6 +1,6 @@
 import Modal from 'react-modal'
-import { useAppDispatch, useAppSelector } from '../../../redux.store/hook'
-import { toggleModal } from '../../../redux.store/stopwatch/slice.stopwatch'
+import { useAppDispatch, useAppSelector } from '../../../redux/hook'
+import { toggleModal } from '../../../redux/stopwatch/slice.stopwatch'
 import { FormModal } from './form.modal'
 
 Modal.setAppElement('#root')

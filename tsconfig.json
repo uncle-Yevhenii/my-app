@@ -1,5 +1,13 @@
 {
   "files": [],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@redux/*": ["./src/redux/*"],
+    },
+  },
   "references": [
     {
       "path": "./tsconfig.app.json"

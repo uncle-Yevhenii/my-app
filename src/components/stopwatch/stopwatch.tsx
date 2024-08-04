@@ -1,5 +1,5 @@
-import { pause, start, tick, toggleModal } from '../../redux.store/stopwatch/slice.stopwatch'
-import { useAppDispatch, useAppSelector } from '../../redux.store/hook'
+import { pause, start, tick, toggleModal } from '../../redux/stopwatch/slice.stopwatch'
+import { useAppDispatch, useAppSelector } from '../../redux/hook'
 import { useEffect } from 'react'
 import { formatTime } from './helpers'
 import { RootModal } from './modal/root.modal'
@@ -10,7 +10,6 @@ export function Stopwatch() {
   const state = useAppSelector((state) => state.stopwatch.stopwatch__cfg)
   const modal = useAppSelector((state) => state.stopwatch.modal__cfg)
   const dispatch = useAppDispatch()
-
   useEffect(() => {
     if (!state.running) {
       return
