@@ -26,6 +26,7 @@
 
   border: solid 1px var(--primary-300);
 
+  cursor: pointer;
   outline: transparent;
 }
 .stopwatch__button:hover,
