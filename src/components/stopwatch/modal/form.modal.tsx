@@ -15,7 +15,7 @@ export function FormModal() {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, actions) => {
+      onSubmit={(_values, actions) => {
         actions.setSubmitting(false)
         if (state.buttonText === 'play') {
           dispatch(toggleModal(!state.open))
