@@ -5,6 +5,7 @@ export default function StopIcon({ size = 20, color = 'currentColor' }: IconProp
     <svg
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       xmlns="http://www.w3.org/2000/svg"
+      id="stop"
       height={`${size}px`}
       width={`${size}px`}
       viewBox="0 -960 960 960"

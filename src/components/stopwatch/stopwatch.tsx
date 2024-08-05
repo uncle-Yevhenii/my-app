@@ -2,8 +2,11 @@ import { useEffect } from 'react'
 
 import { pause, start, tick, toggleModal } from '@redux/stopwatch/slice.stopwatch'
 import { useAppDispatch, useAppSelector } from '@redux/hook'
+import { PauseIcon, PlayIcon, StopIcon } from '../images'
 import { formatTime } from './helpers'
 import { RootModal } from './modal/root.modal'
+
+import style from './style.module.css'
 
 export function Stopwatch() {
   const INTERVAL_DELAY: number = 1000
@@ -21,42 +24,60 @@ export function Stopwatch() {
 
   return (
     <section>
-      <div>{formatTime(state.hours, state.minutes, state.second)}</div>
+      <div className={style.stopwatch__container}>
+        <div className={style.stopwatch__display}>
+          <p>{formatTime(state.hours, state.minutes, state.second)}</p>
+        </div>
+        <div className={style.stopwatch__control}>
+          {!state.running ? (
+            <button
+              className={style.stopwatch__button}
+              onClick={(e) => {
+                if (state.second === 0 && state.minutes === 0 && state.hours === 0) {
+                  return dispatch(
+                    toggleModal({
+                      modal: !modal.open,
+                      buttonText: e.currentTarget.children[0].id,
+                    })
+                  )
+                }
+                return dispatch(start())
+              }}
+            >
+              <PlayIcon size={30} />
+            </button>
+          ) : (
+            <button
+              className={style.stopwatch__button}
+              onClick={() => {
+                dispatch(pause())
+              }}
+            >
+              <PauseIcon size={30} />
+            </button>
+          )}
 
-      {!state.running ? (
-        <button
-          onClick={(e) => {
-            if (state.second === 0 && state.minutes === 0 && state.hours === 0) {
-              return dispatch(
-                toggleModal({ modal: !modal.open, text: e.currentTarget.textContent })
+          <button
+            className={style.stopwatch__button}
+            onClick={(e) => {
+              dispatch(pause())
+              dispatch(
+                toggleModal({
+                  modal: !modal.open,
+                  buttonText: e.currentTarget.children[0].id,
+                })
               )
+            }}
+            disabled={
+              state.second === 0 && state.minutes === 0 && state.hours === 0
+                ? true
+                : false
             }
-            return dispatch(start())
-          }}
-        >
-          Start
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            dispatch(pause())
-          }}
-        >
-          Pause
-        </button>
-      )}
-
-      <button
-        onClick={(e) => {
-          dispatch(pause())
-          dispatch(toggleModal({ modal: !modal.open, text: e.currentTarget.textContent }))
-        }}
-        disabled={
-          state.second === 0 && state.minutes === 0 && state.hours === 0 ? true : false
-        }
-      >
-        Stop
-      </button>
+          >
+            <StopIcon size={30} />
+          </button>
+        </div>
+      </div>
 
       <RootModal />
     </section>

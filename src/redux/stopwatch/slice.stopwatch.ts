@@ -41,8 +41,8 @@ export const stopwatchSlice = createSlice({
     },
 
     toggleModal: (state, action) => {
-      state.modal__cfg.open = action.payload.modal ? action.payload.modal : false
-      state.modal__cfg.buttonText = action.payload.text ? action.payload.text : ''
+      state.modal__cfg.open = action.payload.modal
+      state.modal__cfg.buttonText = action.payload.buttonText
     },
   },
 })

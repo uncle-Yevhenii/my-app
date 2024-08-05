@@ -17,13 +17,12 @@ export function FormModal() {
       initialValues={initialValues}
       onSubmit={(values, actions) => {
         actions.setSubmitting(false)
-
-        if (state.buttonText === 'Start') {
+        if (state.buttonText === 'play') {
           dispatch(toggleModal(!state.open))
           dispatch(start())
         }
 
-        if (state.buttonText === 'Stop') {
+        if (state.buttonText === 'stop') {
           dispatch(toggleModal(!state.open))
           dispatch(stop())
         }
