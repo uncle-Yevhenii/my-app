@@ -44,7 +44,7 @@ export function Stopwatch() {
                 return dispatch(start())
               }}
             >
-              <PlayIcon size={30} />
+              <PlayIcon size={30} color="#534d46" />
             </button>
           ) : (
             <button
@@ -53,7 +53,7 @@ export function Stopwatch() {
                 dispatch(pause())
               }}
             >
-              <PauseIcon size={30} />
+              <PauseIcon size={30} color="#534d46" />
             </button>
           )}
 
@@ -74,7 +74,7 @@ export function Stopwatch() {
                 : false
             }
           >
-            <StopIcon size={30} />
+            <StopIcon size={30} color="#534d46" />
           </button>
         </div>
       </div>

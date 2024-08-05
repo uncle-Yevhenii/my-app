@@ -11,6 +11,31 @@ export function RootModal() {
 
   return (
     <Modal
+      style={{
+        overlay: {
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: -100,
+          bottom: 0,
+          backgroundColor: 'transparent',
+        },
+        content: {
+          maxWidth: '500px',
+          position: 'absolute',
+          top: '40px',
+          left: '40px',
+          right: '40px',
+          bottom: '40px',
+          border: '1px solid #b9b3ac',
+          background: '#cccccc',
+          overflow: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          borderRadius: '0.375rem',
+          outline: 'none',
+          padding: '20px',
+        },
+      }}
       isOpen={modal.open}
       onRequestClose={() => dispatch(toggleModal(!modal.open))}
       contentLabel="Example Modal"

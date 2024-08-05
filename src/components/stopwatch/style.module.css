@@ -10,7 +10,7 @@
   font-family: monospace;
   font-size: 1.75rem;
 }
-.button {
+.stopwatch__button {
   width: 35px;
   height: 35px;
 
@@ -28,7 +28,7 @@
 
   outline: transparent;
 }
-.button:hover,
-.button:focus {
+.stopwatch__button:hover,
+.stopwatch__button:focus {
   background-color: var(--primary-300);
 }
