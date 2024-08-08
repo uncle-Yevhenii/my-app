@@ -1,11 +1,9 @@
-import { Stopwatch } from './stopwatch/stopwatch'
+import { AppRouter } from '@/routes'
 
 export default function App() {
   return (
-    <section>
-      <div>
-        <Stopwatch />
-      </div>
-    </section>
+    <>
+      <AppRouter />
+    </>
   )
 }
