@@ -42,6 +42,10 @@
   cursor: pointer;
   outline: transparent;
 }
+.stopwatch__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 .stopwatch__buttonSecondary {
   width: 20px;
   height: 20px;
