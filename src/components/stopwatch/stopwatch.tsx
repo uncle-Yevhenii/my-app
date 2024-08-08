@@ -24,13 +24,13 @@ export function Stopwatch() {
 
   return (
     <>
-      <div className={style.stopwatch__container}>
+      <section className={style.stopwatch__container}>
         <div className={style.stopwatch__display}>
           <p>{formatTime(state.hours, state.minutes, state.second)}</p>
         </div>
         <div className={style.stopwatch__control}>
           <button className={style.stopwatch__buttonSecondary}>
-            <InfoIcon size={15} color="#534d46" />
+            <InfoIcon size={20} color="#534d46" />
           </button>
           <div className={style.stopwatch__controlPrimary}>
             {!state.running ? (
@@ -48,7 +48,7 @@ export function Stopwatch() {
                   return dispatch(start())
                 }}
               >
-                <PlayIcon size={30} color="#534d46" />
+                <PlayIcon size={60} color="#534d46" />
               </button>
             ) : (
               <button
@@ -85,7 +85,7 @@ export function Stopwatch() {
             <QueryStatsIcon size={15} color="#534d46" />
           </button>
         </div>
-      </div>
+      </section>
       <RootModal />
     </>
   )

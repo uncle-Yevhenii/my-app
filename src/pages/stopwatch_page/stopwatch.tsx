@@ -8,10 +8,10 @@ export default function StopwatchPage() {
   const [state, setState] = useState(true)
 
   return (
-    <section className={style.section__wrapper}>
+    <div className={style.section__wrapper}>
       <Stopwatch />
 
       {state && <Outlet />}
-    </section>
+    </div>
   )
 }

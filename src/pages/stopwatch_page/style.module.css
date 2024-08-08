@@ -1,6 +1,6 @@
 .section__wrapper {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 30px;
 }

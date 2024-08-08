@@ -11,6 +11,7 @@
   gap: 3px;
 }
 .stopwatch__display {
+  width: 500px;
   text-align: center;
   margin-bottom: 10px;
   font-family: monospace;
