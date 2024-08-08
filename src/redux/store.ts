@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import stopwatchReducer from './stopwatch/slice.stopwatch'
+import infoReducer from './stopwatch/slice.info'
 
 export const store = configureStore({
   reducer: {
     stopwatch: stopwatchReducer,
+    info: infoReducer,
   },
 })
 

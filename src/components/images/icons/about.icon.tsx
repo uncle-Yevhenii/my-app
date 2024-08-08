@@ -1,6 +1,6 @@
 import { IconProps } from './type'
 
-export default function InfoIcon({ size = 20, color = 'currentColor' }: IconProps) {
+export default function AboutIcon({ size = 20, color = 'currentColor' }: IconProps) {
   return (
     <svg
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}

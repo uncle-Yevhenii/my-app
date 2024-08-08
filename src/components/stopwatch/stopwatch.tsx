@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 
 import { pause, start, tick, toggleModal } from '@redux/stopwatch/slice.stopwatch'
+import { toggleInfo } from '@redux/stopwatch/slice.info'
 import { useAppDispatch, useAppSelector } from '@redux/hook'
-import { InfoIcon, PauseIcon, PlayIcon, QueryStatsIcon, StopIcon } from '../images'
+import { AboutIcon, PauseIcon, PlayIcon, QueryStatsIcon, StopIcon } from '../images'
 import { formatTime } from './helpers'
 import { RootModal } from './modal/root.modal'
 
@@ -12,7 +13,9 @@ export function Stopwatch() {
   const INTERVAL_DELAY: number = 1000
 
   const state = useAppSelector((state) => state.stopwatch.stopwatch__cfg)
+  const info = useAppSelector((state) => state.info.info__visible)
   const modal = useAppSelector((state) => state.stopwatch.modal__cfg)
+
   const dispatch = useAppDispatch()
   useEffect(() => {
     if (!state.running) {
@@ -28,10 +31,12 @@ export function Stopwatch() {
         <div className={style.stopwatch__display}>
           <p>{formatTime(state.hours, state.minutes, state.second)}</p>
         </div>
+
         <div className={style.stopwatch__control}>
           <button className={style.stopwatch__buttonSecondary}>
-            <InfoIcon size={20} color="#534d46" />
+            <AboutIcon size={20} color="#534d46" />
           </button>
+
           <div className={style.stopwatch__controlPrimary}>
             {!state.running ? (
               <button
@@ -81,7 +86,10 @@ export function Stopwatch() {
               <StopIcon size={30} color="#534d46" />
             </button>
           </div>
-          <button className={style.stopwatch__buttonSecondary}>
+          <button
+            className={style.stopwatch__buttonSecondary}
+            onClick={() => dispatch(toggleInfo(!info))}
+          >
             <QueryStatsIcon size={15} color="#534d46" />
           </button>
         </div>

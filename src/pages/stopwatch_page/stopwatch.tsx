@@ -2,10 +2,11 @@ import { Stopwatch } from '@/components/stopwatch/stopwatch'
 
 import style from './style.module.css'
 import { Outlet } from 'react-router-dom'
-import { useState } from 'react'
+
+import { useAppSelector } from '@/redux/hook'
 
 export default function StopwatchPage() {
-  const [state, setState] = useState(true)
+  const state = useAppSelector((state) => state.info.info__visible)
 
   return (
     <div className={style.section__wrapper}>

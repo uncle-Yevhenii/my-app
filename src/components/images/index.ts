@@ -4,6 +4,6 @@ export { default as StopIcon } from './icons/stop.icon'
 export { default as CloseIcon } from './icons/close.icon'
 
 export { default as ChartIcon } from './icons/chart.icon'
-export { default as InfoIcon } from './icons/info.icon'
+export { default as AboutIcon } from './icons/about.icon'
 export { default as CommentIcon } from './icons/comments.icon'
 export { default as QueryStatsIcon } from './icons/query-stats.icon'
