@@ -1,15 +1,28 @@
 .stopwatch__control {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  gap: 3px;
+}
+.stopwatch__controlPrimary {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
 }
 .stopwatch__display {
   text-align: center;
   margin-bottom: 10px;
   font-family: monospace;
-  font-size: 1.75rem;
+  font-size: 5rem;
+  letter-spacing: -0.4rem;
+  background-color: var(--background-200);
+  border: solid 1px var(--primary-300);
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--mp-10);
 }
+
 .stopwatch__button {
   width: 35px;
   height: 35px;
@@ -29,7 +42,29 @@
   cursor: pointer;
   outline: transparent;
 }
+.stopwatch__buttonSecondary {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--text-950);
+  background-color: var(--background-200);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--rounded-md);
+  transition: var(--animation);
+
+  border: solid 1px var(--primary-300);
+
+  cursor: pointer;
+  outline: transparent;
+}
+
 .stopwatch__button:hover,
-.stopwatch__button:focus {
+.stopwatch__button:focus,
+.stopwatch__buttonSecondary:hover,
+.stopwatch__buttonSecondary:focus {
   background-color: var(--primary-300);
 }

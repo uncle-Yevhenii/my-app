@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { pause, start, tick, toggleModal } from '@redux/stopwatch/slice.stopwatch'
 import { useAppDispatch, useAppSelector } from '@redux/hook'
-import { PauseIcon, PlayIcon, StopIcon } from '../images'
+import { InfoIcon, PauseIcon, PlayIcon, QueryStatsIcon, StopIcon } from '../images'
 import { formatTime } from './helpers'
 import { RootModal } from './modal/root.modal'
 
@@ -23,63 +23,70 @@ export function Stopwatch() {
   }, [state, dispatch])
 
   return (
-    <section>
+    <>
       <div className={style.stopwatch__container}>
         <div className={style.stopwatch__display}>
           <p>{formatTime(state.hours, state.minutes, state.second)}</p>
         </div>
         <div className={style.stopwatch__control}>
-          {!state.running ? (
+          <button className={style.stopwatch__buttonSecondary}>
+            <InfoIcon size={15} color="#534d46" />
+          </button>
+          <div className={style.stopwatch__controlPrimary}>
+            {!state.running ? (
+              <button
+                className={style.stopwatch__button}
+                onClick={(e) => {
+                  if (state.second === 0 && state.minutes === 0 && state.hours === 0) {
+                    return dispatch(
+                      toggleModal({
+                        modal: !modal.open,
+                        buttonText: e.currentTarget.children[0].id,
+                      })
+                    )
+                  }
+                  return dispatch(start())
+                }}
+              >
+                <PlayIcon size={30} color="#534d46" />
+              </button>
+            ) : (
+              <button
+                className={style.stopwatch__button}
+                onClick={() => {
+                  dispatch(pause())
+                }}
+              >
+                <PauseIcon size={30} color="#534d46" />
+              </button>
+            )}
+
             <button
               className={style.stopwatch__button}
               onClick={(e) => {
-                if (state.second === 0 && state.minutes === 0 && state.hours === 0) {
-                  return dispatch(
-                    toggleModal({
-                      modal: !modal.open,
-                      buttonText: e.currentTarget.children[0].id,
-                    })
-                  )
-                }
-                return dispatch(start())
-              }}
-            >
-              <PlayIcon size={30} color="#534d46" />
-            </button>
-          ) : (
-            <button
-              className={style.stopwatch__button}
-              onClick={() => {
                 dispatch(pause())
+                dispatch(
+                  toggleModal({
+                    modal: !modal.open,
+                    buttonText: e.currentTarget.children[0].id,
+                  })
+                )
               }}
+              disabled={
+                state.second === 0 && state.minutes === 0 && state.hours === 0
+                  ? true
+                  : false
+              }
             >
-              <PauseIcon size={30} color="#534d46" />
+              <StopIcon size={30} color="#534d46" />
             </button>
-          )}
-
-          <button
-            className={style.stopwatch__button}
-            onClick={(e) => {
-              dispatch(pause())
-              dispatch(
-                toggleModal({
-                  modal: !modal.open,
-                  buttonText: e.currentTarget.children[0].id,
-                })
-              )
-            }}
-            disabled={
-              state.second === 0 && state.minutes === 0 && state.hours === 0
-                ? true
-                : false
-            }
-          >
-            <StopIcon size={30} color="#534d46" />
+          </div>
+          <button className={style.stopwatch__buttonSecondary}>
+            <QueryStatsIcon size={15} color="#534d46" />
           </button>
         </div>
       </div>
-
       <RootModal />
-    </section>
+    </>
   )
 }

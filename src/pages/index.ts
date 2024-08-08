@@ -1,2 +1,2 @@
 export { default as LibraryPage } from './library'
-export { default as StopwatchPage } from './stopwatch'
+export { default as StopwatchPage } from './stopwatch_page/stopwatch'
