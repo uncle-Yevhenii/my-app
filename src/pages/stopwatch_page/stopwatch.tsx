@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function StopwatchPage() {
-  const [state, setState] = useState(false)
+  const [state, setState] = useState(true)
 
   return (
     <section className={style.section__wrapper}>

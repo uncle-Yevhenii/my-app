@@ -1,2 +1,5 @@
-export { default as LibraryPage } from './library'
 export { default as StopwatchPage } from './stopwatch_page/stopwatch'
+export { default as AboutPage } from './stopwatch_page/about/about'
+export { default as InfoPage } from './stopwatch_page/info/info'
+export { default as StatsPage } from './stopwatch_page/info/stats/stats'
+export { default as CommentsPage } from './stopwatch_page/info/comments/comments'
